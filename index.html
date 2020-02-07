@@ -75,6 +75,7 @@
       <input type="radio" id="none" name="feature" value="none" checked>None<br>
       <input type="radio" id="ads" name="feature" value="ads">Ads<br>
       <input type="radio" id="live" name="feature" value="live">Live
+      <button onclick="rdidTest()">rdid</button>
     </div>
     <div id="media_subtitle"></div>
   </div>
@@ -90,6 +91,14 @@
 
   <script src="CastVideos.js" type="module"></script>
   <script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
+  <script>
+    function rdidTest() {
+      const ad_message = "requestAd,https://pubads.g.doubleclick.net/gampad/ads?sz=640x480&impl=s&gdfp_req=1&env=vp&output=vmap&unviewed_position_start=1&ad_rule=1&cmsid=2474735&appbundle=web.www.univisionnow.com&pw=1920&ph=969&description_url=https%3A%2F%2Fwww.univisionnow.com%2F&vid=3809306&iu=%2F6881%2Frd.unow_vod_subscriber,60"
+      const namespace = 'urn:x-cast:com.google.ads.ima.cast';
+      let session = cast.framework.CastContext.getInstance().getCurrentSession();
+      session.sendMessage(namespace, ad_message);
+    }
+  </script>
 </body>
 
 </html>
